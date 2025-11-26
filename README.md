@@ -1,2 +1,8 @@
-# sakila_lab_daniela_algerydh
-SQL Lab 1 with Sakila: DuckDB ingestion, EDA in Jupyter, SQL queries and visualizations.
+# Sakila lab
+
+This repository contains the full workflow for SQL Lab 1 using the Sakila database.  
+It includes data ingestion to DuckDB, exploratory analysis in Jupyter, SQL-based insights, and visualizations.
+
+### TODO: higlights from the lab
+### TODO: descriptions about the lab
+### TODO: nice images/screenshots
