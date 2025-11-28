@@ -1,7 +1,7 @@
 [project]
 name = "sakila-lab-daniela-algerydh"
 version = "0.1.0"
-description = "Add your description here"
+description = "Examinating project in Database handling-course"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = []
