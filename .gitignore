@@ -212,4 +212,7 @@ __marimo__/
 *.ddb
 
 #SQLite
-*.db
+*.
+
+#SQL-formatting
+formatting.sql
