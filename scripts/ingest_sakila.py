@@ -10,7 +10,7 @@ SQLITE_PATH = DATA_PATH / "sqlite-sakila.db"
 DUCKDB_PATH = DATA_PATH / "sakila.duckdb"
 
 #SQLite source (sakila db)
-source =sql_database(
+source = sql_database(
     credentials=f"sqlite:///{SQLITE_PATH}",
     schema="main")
 
