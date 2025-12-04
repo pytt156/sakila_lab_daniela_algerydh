@@ -4,5 +4,5 @@ SELECT
     p.amount,
     p.payment_date
 FROM
-    customer cu
-    JOIN payment p ON p.customer_id = cu.customer_id;
+    staging.customer cu
+    JOIN staging.payment p ON p.customer_id = cu.customer_id;
