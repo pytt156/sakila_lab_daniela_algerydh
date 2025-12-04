@@ -1,7 +1,18 @@
 ---
-title: Welcome to Evidence
+title: Sakila Dashboard
 ---
 
+# Sakila Dashboard
+
+This dashboard provides an overview of insights from the Sakila movie rental database.
+All data is loaded into DuckDB.
+
+## Example:
+```sql
+from sakila.customer_payments;
+```
+
+## Nagivation:
 
 <!--
 <Details title='How to edit this page'>

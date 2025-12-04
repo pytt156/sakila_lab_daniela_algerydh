@@ -2,3 +2,4 @@ name: sakila
 type: duckdb
 options:
   filename: ../../../data/sakila.duckdb
+schema: staging
