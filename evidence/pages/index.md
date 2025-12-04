@@ -7,12 +7,13 @@ title: Sakila Dashboard
 This dashboard provides an overview of insights from the Sakila movie rental database.
 All data is loaded into DuckDB.
 
-## Example:
+## Example
 ```sql
 from sakila.customer_payments;
 ```
+<LineChart data={total_revenue}/>
 
-## Nagivation:
+## Nagivation
 
 <!--
 <Details title='How to edit this page'>
