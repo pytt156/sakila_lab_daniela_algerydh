@@ -2,12 +2,14 @@
 title: Welcome to Evidence
 ---
 
+
+<!--
 <Details title='How to edit this page'>
 
   This page can be found in your project at `/pages/index.md`. Make a change to the markdown file and save it to see the change take effect in your browser.
 </Details>
 
-```sql categories
+--```sql categories
   select
       category
   from needful_things.orders
@@ -25,7 +27,7 @@ title: Welcome to Evidence
     <DropdownOption value=2021/>
 </Dropdown>
 
-```sql orders_by_category
+--```sql orders_by_category
   select 
       date_trunc('month', order_datetime) as month,
       sum(sales) as sales_usd,
@@ -54,3 +56,4 @@ title: Welcome to Evidence
 - Message us on [Slack](https://slack.evidence.dev/)
 - Read the [Docs](https://docs.evidence.dev/)
 - Open an issue on [Github](https://github.com/evidence-dev/evidence)
+-->
