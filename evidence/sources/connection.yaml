@@ -1,8 +1,0 @@
-project:
-  name: Sakila Dashboard
-
-data:
-  sources:
-    sakila:
-      type: duckdb
-      path: ../data/sakila.duckdb
