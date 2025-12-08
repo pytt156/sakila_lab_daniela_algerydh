@@ -24,3 +24,6 @@ LIMIT 5;
 />
 
 ## Nagivation
+[Actors](../actors)
+[Films](../films)
+[Revenue](../revenue) 
