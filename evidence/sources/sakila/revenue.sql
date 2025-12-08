@@ -5,7 +5,7 @@ sf.first_name || ' ' || sf.last_name as staff,
 f.title,
 ca.name as category,
 a.address,
-ci.city,
+ac.first_name || ' ' || ac.last_name AS actor,
 co.country,
 st.store_id,
 r.rental_id
@@ -22,3 +22,5 @@ LEFT JOIN staging.category ca ON ca.category_id = fc.category_id
 LEFT JOIN staging.address a ON a.address_id = c.address_id
 LEFT JOIN staging.city ci ON ci.city_id = a.city_id
 LEFT JOIN staging.country co ON co.country_id = ci.country_id
+LEFT JOIN staging.film_actor fa ON f.film_id = fa.film_id
+LEFT JOIN staging.actor ac ON fa.actor_id = ac.actor_id

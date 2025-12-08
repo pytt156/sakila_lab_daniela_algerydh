@@ -1,7 +1,9 @@
 SELECT
     a.actor_id,
     a.first_name || ' ' || a.last_name AS actor,
+    a.first_name,
     f.film_id,
+    a.last_name,
     f.title,
     c.name AS category
 FROM

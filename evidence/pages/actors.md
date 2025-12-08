@@ -2,22 +2,22 @@
 title: Actors
 ---
 
-```sql top_actors
+```sql top_paying_actors
 SELECT
-COUNT(actor_id) AS number_of_movies,
+SUM(amount) as total_revenue,
 actor
-FROM sakila.actors
+FROM sakila.revenue
 GROUP BY actor
-ORDER BY number_of_movies DESC
+ORDER BY total_revenue DESC
 LIMIT 10;
 ```
 <BarChart
-    data={top_actors}
+    data={top_paying_actors}
     x=actor
-    y=number_of_movies
-    title='Top Actors'
+    y=total_revenue
+    title='Top Paying Actors'
     xAxisTitle='Actor Name'
-    yAxisTitle='Number of movies'
+    yAxisTitle='Billed'
 />
 
 ---
@@ -49,3 +49,41 @@ ORDER BY film_count DESC, category
 </div>
 
 ---
+
+```sql most_common_first_name
+SELECT
+    COUNT(first_name) AS number_of_actors_with_this_first_name,
+    first_name
+FROM
+    sakila.actors
+GROUP BY
+    first_name
+LIMIT 10;
+```
+
+<BubbleChart
+    data={most_common_first_name}
+    x=first_name
+    y=number_of_actors_with_this_first_name
+    size=number_of_actors_with_this_first_name
+    series=first_name
+/>
+
+```sql most_common_last_name
+SELECT
+    COUNT(first_name) AS number_of_actors_with_this_last_name,
+    last_name
+FROM
+    sakila.actors
+GROUP BY
+    last_name
+LIMIT 10;
+```
+
+<BubbleChart
+    data={most_common_last_name}
+    x=last_name
+    y=number_of_actors_with_this_last_name
+    size=number_of_actors_with_this_last_name
+    series=last_name
+/>
