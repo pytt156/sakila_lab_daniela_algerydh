@@ -1,9 +1,12 @@
 ---
 title: Sakila Dashboard
 ---
-
+<Details title='About'>
 This dashboard provides an overview of insights from the Sakila movie rental database.
 All data is loaded into DuckDB.
+</Details>
+
+---
 
 ## Example
 ```sql top_customers
@@ -23,7 +26,10 @@ LIMIT 5;
   title="Top Customers"
 />
 
+---
+
 ## Nagivation
-[Actors](../actors)
-[Films](../films)
-[Revenue](../revenue) 
+
+- [Actors](../actors) - <i>Visuals related to/sorted by actors</i> <br>
+- [Films](../films) - <i>Visuals related to/sorted by films</i> <br>
+- [Revenue](../revenue) - <i>Visuals related to/sorted by revenue</i> <br>
