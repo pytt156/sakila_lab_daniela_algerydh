@@ -77,6 +77,25 @@ ORDER BY value DESC;
     ]
   }}
 />
+---
+
+```sql revenue_by_category_over_time
+SELECT
+  SUM(amount) AS revenue,
+  category,
+  strftime(payment_date, '%Y-%m') AS month
+FROM sakila.films
+GROUP BY category, month
+ORDER BY revenue
+```
+
+<AreaChart
+  data={revenue_by_category_over_time}
+  x=month
+  y=revenue
+  series=category
+  colorPalette=myPastelBars
+/>
 
 ---
 
@@ -124,7 +143,7 @@ GROUP BY staff;
 
 ---
 
-```sql most_expensive_movie
+```sql most_lucrative_movie
 SELECT
     title as name,
     SUM(amount) AS value
@@ -135,10 +154,10 @@ LIMIT 20
 ```
 
 <FunnelChart
-    data={most_expensive_movie}
+    data={most_lucrative_movie}
     nameCol=name
     valueCol=value
-    title="Most expensive movies"
+    title="Most lucrative movies"
     series=name
     colorPalette=myPastelBars
 />

@@ -8,7 +8,9 @@ a.address,
 ac.first_name || ' ' || ac.last_name AS actor,
 co.country,
 st.store_id,
-r.rental_id
+r.rental_id,
+ci.city,
+(f.rental_rate / f.rental_duration) AS rent_per_day
 FROM
 staging.rental r
 LEFT JOIN staging.payment p ON p.rental_id = r.rental_id

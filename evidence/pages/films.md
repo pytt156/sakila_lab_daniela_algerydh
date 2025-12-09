@@ -50,20 +50,34 @@ ORDER BY rented_count DESC
 
 ```sql most_common_categories
 SELECT
-    category,
-    COUNT(DISTINCT film_id) AS films
+    category AS name,
+    COUNT(DISTINCT film_id) AS value
 FROM sakila.actors
 GROUP BY category
-ORDER BY films DESC;
+ORDER BY name DESC;
 ```
-<BarChart
-    data={most_common_categories}
-    y=films
-    x=category
-    swapXY=true
-    series=category
-    title="Pouplar Categories"
-    colorPalette=myPastelBars
+
+<ECharts
+  config={{
+    tooltip: {
+      formatter: '{b}: {c} ({d}%)'
+    },
+    color: [
+      "#F7A8A8",
+      "#F7D7A8",
+      "#F7F7A8",
+      "#A8F7C8",
+      "#A8F7F7",
+      "#A8C8F7",
+      "#D7A8F7"
+    ],
+    series: [
+      {
+        type: 'pie',
+        data: [...most_common_categories]
+      }
+    ]
+  }}
 />
 
 ```sql most_rented_categories
