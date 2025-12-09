@@ -5,11 +5,11 @@ title: Films
 ```sql top_rented_films
 SELECT
     title,
-    SUM(rental_id) AS rented_count,
+    COUNT(rental_id) AS rented_count
 FROM sakila.films
 GROUP BY title
 ORDER BY rented_count DESC
-LIMIT 20;
+LIMIT 20
 ```
 
 <BarChart
@@ -19,27 +19,34 @@ LIMIT 20;
     swapXY=true
     series=title
     title="Top rented films"
+    colorPalette="myPastelBars"
 />
 
+---
 
-
-```sql longest_movies
+```sql popular_titles_by_month
 SELECT
-length || ' minutes' AS length,
-title
-FROM
-sakila.films
-ORDER BY sakila.films.length DESC
-LIMIT 10;
+    sf.title,
+    strftime(sf.rental_date, '%Y-%m') AS year_month,
+    COUNT(sf.rental_id) AS rented_count
+FROM sakila.films sf
+JOIN ${top_rented_films} tf ON sf.title = tf.title
+WHERE sf.rental_date IS NOT NULL
+GROUP BY sf.title, year_month
+ORDER BY rented_count DESC
 ```
 
-<FunnelChart
-    data={longest_movies}
-    nameCol=title
-    valueCol=length
-/>
+<Heatmap
+    data={popular_titles_by_month}
+    x=title
+    y=year_month
+    value=rented_count
+    colorScale="myPastelHeat"
+    />
 
 
+
+---
 
 ```sql most_common_categories
 SELECT
@@ -56,7 +63,24 @@ ORDER BY films DESC;
     swapXY=true
     series=category
     title="Pouplar Categories"
+    colorPalette=myPastelBars
 />
 
 ```sql most_rented_categories
+SELECT
+    category,
+    SUM(rental_id) AS rented_count,
+FROM sakila.films
+GROUP BY category
+ORDER BY rented_count DESC
+LIMIT 20;
 ```
+
+<FunnelChart
+    data={most_rented_categories}
+    nameCol=category
+    valueCol=rented_count
+    colorPalette=myPastelBars
+/>
+
+

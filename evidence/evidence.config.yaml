@@ -27,6 +27,24 @@ theme:
         - "#8f3d56"
         - "#71b9f4"
         - "#46a485"
+
+    myPastelBars:
+      light:
+        - "#F7A8A8"
+        - "#F7D7A8"
+        - "#F7F7A8"
+        - "#A8F7C8"
+        - "#A8F7F7"
+        - "#A8C8F7"
+        - "#D7A8F7"
+      dark:
+        - "#F7A8A8"
+        - "#F7D7A8"
+        - "#F7F7A8"
+        - "#A8F7C8"
+        - "#A8F7F7"
+        - "#A8C8F7"
+        - "#D7A8F7"      
   colorScales:
     default:
       light:
@@ -35,6 +53,25 @@ theme:
       dark:
         - "#ADD8E6"
         - "#00008B"
+
+    myPastelHeat:
+      light:
+        - "#F7A8A8"
+        - "#F7D7A8"
+        - "#F7F7A8"
+        - "#A8F7C8"
+        - "#A8F7F7"
+        - "#A8C8F7"
+        - "#D7A8F7"
+      dark:
+        - "#F7A8A8"
+        - "#F7D7A8"
+        - "#F7F7A8"
+        - "#A8F7C8"
+        - "#A8F7F7"
+        - "#A8C8F7"
+        - "#D7A8F7"
+
   colors:
     primary:
       light: "#2563eb"

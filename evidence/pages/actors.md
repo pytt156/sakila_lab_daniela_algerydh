@@ -18,6 +18,8 @@ LIMIT 10;
     title='Top Paying Actors'
     xAxisTitle='Actor Name'
     yAxisTitle='Billed'
+    colorPalette=myPastelBars
+    series=actor
 />
 
 ---
@@ -45,6 +47,7 @@ ORDER BY film_count DESC, category
     series="category"
     swapXY={true}
     title="Actors by Category and Film Count"
+    colorPalette=myPastelBars
 />
 </div>
 
@@ -67,6 +70,7 @@ LIMIT 10;
     y=number_of_actors_with_this_first_name
     size=number_of_actors_with_this_first_name
     series=first_name
+    colorPalette=myPastelBars
 />
 
 ```sql most_common_last_name
@@ -86,4 +90,5 @@ LIMIT 10;
     y=number_of_actors_with_this_last_name
     size=number_of_actors_with_this_last_name
     series=last_name
+    colorPalette=myPastelBars
 />

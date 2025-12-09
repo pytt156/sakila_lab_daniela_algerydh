@@ -18,6 +18,7 @@ ORDER BY total_revenue;
     x="store_id"
     value="total_revenue"
     title="Store Revenue"
+    colorScale=myPastelHeat
 />
 
 ---
@@ -40,6 +41,7 @@ LIMIT 10;
     label=customer
     series=customer
     title="Top Customer"
+    colorPalette=myPastelBars
 />
 
 ---
@@ -58,6 +60,15 @@ ORDER BY value DESC;
     tooltip: {
       formatter: '{b}: {c} ({d}%)'
     },
+    color: [
+      "#F7A8A8",
+      "#F7D7A8",
+      "#F7F7A8",
+      "#A8F7C8",
+      "#A8F7F7",
+      "#A8C8F7",
+      "#D7A8F7"
+    ],
     series: [
       {
         type: 'pie',
@@ -90,6 +101,7 @@ GROUP BY category;
     intervalTop=q3
     max=max
     title="Category payment distrobution"
+    color=myPastelBars
 />
 
 ---
@@ -107,6 +119,7 @@ GROUP BY staff;
     x=staff
     y=total_revenue
     series=staff
+    colorPalette=myPastelBars
 />
 
 ---
@@ -126,4 +139,6 @@ LIMIT 20
     nameCol=name
     valueCol=value
     title="Most expensive movies"
+    series=name
+    colorPalette=myPastelBars
 />
