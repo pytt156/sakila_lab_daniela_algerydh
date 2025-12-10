@@ -3,7 +3,7 @@ from dlt.sources.sql_database import sql_database
 from pathlib import Path
 
 # Constant paths
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path.cwd().parent.resolve()
 DATA_PATH = BASE_DIR / "data"
 
 SQLITE_PATH = DATA_PATH / "sqlite-sakila.db"
