@@ -2,6 +2,15 @@
 title: Revenue
 ---
 
+<Heatmap
+    data={top_store}
+    y="metric"
+    x="store_id"
+    value="total_revenue"
+    title="Store Revenue"
+    colorScale=myPastelHeat
+/>
+
 ```sql top_store
 SELECT
 store_id,
@@ -12,26 +21,7 @@ GROUP BY store_id
 ORDER BY total_revenue;
 ```
 
-<Heatmap
-    data={top_store}
-    y="metric"
-    x="store_id"
-    value="total_revenue"
-    title="Store Revenue"
-    colorScale=myPastelHeat
-/>
-
 ---
-
-```sql top_costumer
-SELECT
-    customer,
-    SUM(amount) AS total_revenue
-FROM sakila.revenue
-GROUP BY customer
-ORDER BY total_revenue DESC
-LIMIT 10;
-```
 
 <BubbleChart
     data={top_costumer}
@@ -44,16 +34,17 @@ LIMIT 10;
     colorPalette=myPastelBars
 />
 
----
-
-```sql revenue_by_category
+```sql top_costumer
 SELECT
-    category AS name,
-    SUM(amount) AS value,
+    customer,
+    SUM(amount) AS total_revenue
 FROM sakila.revenue
-GROUP BY category
-ORDER BY value DESC;
+GROUP BY customer
+ORDER BY total_revenue DESC
+LIMIT 10;
 ```
+
+---
 
 <ECharts
   config={{
@@ -71,13 +62,32 @@ ORDER BY value DESC;
     ],
     series: [
       {
-        type: 'pie',
+        type: 'pie',Rentals
         data: [...revenue_by_category]
       }
     ]
   }}
 />
+
+```sql revenue_by_category
+SELECT
+    category AS name,
+    SUM(amount) AS value,
+FROM sakila.revenue
+GROUP BY category
+ORDER BY value DESC;
+```
+
 ---
+
+<AreaChart
+  data={revenue_by_category_over_time}
+  x=month
+  y=revenue
+  series=category
+  colorPalette=myPastelBars
+  title="Revenue by category over time"
+/>
 
 ```sql revenue_by_category_over_time
 SELECT
@@ -89,27 +99,7 @@ GROUP BY category, month
 ORDER BY revenue
 ```
 
-<AreaChart
-  data={revenue_by_category_over_time}
-  x=month
-  y=revenue
-  series=category
-  colorPalette=myPastelBars
-/>
-
 ---
-
-```sql category_payment_distrobution
-SELECT
-category,
-MIN(amount) AS min,
-MEDIAN(amount) AS median,
-MAX(amount) AS max,
-QUANTILE_CONT(amount, 0.25) AS q1,
-QUANTILE_CONT(amount, 0.75) AS q3
-FROM sakila.revenue
-GROUP BY category;
-```
 
 <BoxPlot
     data={category_payment_distrobution}
@@ -123,7 +113,28 @@ GROUP BY category;
     color=myPastelBars
 />
 
+```sql category_payment_distrobution
+SELECT
+category,
+MIN(amount) AS min,
+MEDIAN(amount) AS median,
+MAX(amount) AS max,
+QUANTILE_CONT(amount, 0.25) AS q1,
+QUANTILE_CONT(amount, 0.75) AS q3
+FROM sakila.revenue
+GROUP BY category;
+```
+
 ---
+
+<BarChart
+    data={top_staff_by_revenue}
+    x=staff
+    y=total_revenue
+    series=staff
+    colorPalette=myPastelBars
+    title="Top staff by revenue"
+/>
 
 ```sql top_staff_by_revenue
 SELECT
@@ -133,15 +144,16 @@ FROM sakila.revenue
 GROUP BY staff;
 ```
 
-<BarChart
-    data={top_staff_by_revenue}
-    x=staff
-    y=total_revenue
-    series=staff
+---
+
+<FunnelChart
+    data={most_profitable_movie}
+    nameCol=name
+    valueCol=value
+    title="Most profitable movies"
+    series=name
     colorPalette=myPastelBars
 />
-
----
 
 ```sql most_profitable_movie
 SELECT
@@ -152,12 +164,3 @@ GROUP BY name
 ORDER BY value DESC
 LIMIT 20
 ```
-
-<FunnelChart
-    data={most_profitable_movie}
-    nameCol=name
-    valueCol=value
-    title="Most profitable movies"
-    series=name
-    colorPalette=myPastelBars
-/>

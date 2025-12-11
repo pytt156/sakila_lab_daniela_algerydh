@@ -1,19 +1,42 @@
 ---
 title: Sakila Dashboard
 ---
-<Details title='About'>
-This dashboard provides an overview of insights from the Sakila movie rental database.
-All data is loaded into DuckDB.
+
+<Details title="Purpose">
+An analytical entrypoint into the Sakila movie rental dataset.  
+The dashboard highlights customer behavior, film performance, actor participation and revenue patterns - all backed by a reproducible DuckDB pipeline.
 </Details>
 
 ---
 
-Some info about this page and this lab.
+## Explore the Data
+
+<div style="display: flex; flex-direction: column; gap: 12px;">
+
+- **Actors**  
+  Activity patterns, participation distributions, common names..
+
+- **Films**  
+  Category trends, most profitable movies etc.
+
+- **Revenue**  
+  Transaction flows, monthly revenues, top-earning segments.
+
+</div>
 
 ---
 
-## Nagivation
+## Preview
 
-- [Actors](../actors) - <i>Visuals related to/sorted by actors</i> <br>
-- [Films](../films) - <i>Visuals related to/sorted by films</i> <br>
-- [Revenue](../revenue) - <i>Visuals related to/sorted by revenue</i> <br>
+<div style="text-align: center; margin: 20px 0;">
+  <img src="static/images/revenue_over_time.png" width="650">
+</div>
+
+---
+
+## Credits & Repo
+
+- Built with **Evidence**, **DuckDB**, **Python**  
+- Source repository: <u><b><i><a link href="https://github.com/pytt156/sakila_lab_daniela_algerydh">Sakila Lab GitHub</a></i></b></u>
+- Data source: the public <a link href="">Sakila dataset</a>
+- LLM used soley for brainstorming and some minor troubleshooting 

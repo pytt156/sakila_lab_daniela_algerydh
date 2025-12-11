@@ -2,16 +2,6 @@
 title: Films
 ---
 
-```sql top_rented_films
-SELECT
-    title,
-    COUNT(rental_id) AS rented_count
-FROM sakila.films
-GROUP BY title
-ORDER BY rented_count DESC
-LIMIT 20
-```
-
 <BarChart
     data={top_rented_films}
     x=title
@@ -22,7 +12,26 @@ LIMIT 20
     colorPalette="myPastelBars"
 />
 
+```sql top_rented_films
+SELECT
+    title,
+    COUNT(rental_id) AS rented_count
+FROM sakila.films
+GROUP BY title
+ORDER BY rented_count DESC
+LIMIT 20
+```
+
 ---
+
+<Heatmap
+    data={popular_titles_by_month}
+    x=title
+    y=year_month
+    value=rented_count
+    colorScale="myPastelHeat"
+    title="Popular titles by month"
+    />
 
 ```sql popular_titles_by_month
 SELECT
@@ -36,26 +45,7 @@ GROUP BY sf.title, year_month
 ORDER BY rented_count DESC
 ```
 
-<Heatmap
-    data={popular_titles_by_month}
-    x=title
-    y=year_month
-    value=rented_count
-    colorScale="myPastelHeat"
-    />
-
-
-
 ---
-
-```sql most_common_categories
-SELECT
-    category AS name,
-    COUNT(DISTINCT film_id) AS value
-FROM sakila.actors
-GROUP BY category
-ORDER BY name DESC;
-```
 
 <ECharts
   config={{
@@ -80,6 +70,25 @@ ORDER BY name DESC;
   }}
 />
 
+
+```sql most_common_categories
+SELECT
+    category AS name,
+    COUNT(DISTINCT film_id) AS value
+FROM sakila.actors
+GROUP BY category
+ORDER BY name DESC;
+```
+
+---
+
+<FunnelChart
+    data={most_rented_categories}
+    nameCol=category
+    valueCol=rented_count
+    colorPalette=myPastelBars
+    title="Most rented categories"
+/>
 ```sql most_rented_categories
 SELECT
     category,
@@ -89,12 +98,5 @@ GROUP BY category
 ORDER BY rented_count DESC
 LIMIT 20;
 ```
-
-<FunnelChart
-    data={most_rented_categories}
-    nameCol=category
-    valueCol=rented_count
-    colorPalette=myPastelBars
-/>
 
 
