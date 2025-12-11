@@ -143,7 +143,7 @@ GROUP BY staff;
 
 ---
 
-```sql most_lucrative_movie
+```sql most_profitable_movie
 SELECT
     title as name,
     SUM(amount) AS value
@@ -154,10 +154,10 @@ LIMIT 20
 ```
 
 <FunnelChart
-    data={most_lucrative_movie}
+    data={most_profitable_movie}
     nameCol=name
     valueCol=value
-    title="Most lucrative movies"
+    title="Most profitable movies"
     series=name
     colorPalette=myPastelBars
 />
