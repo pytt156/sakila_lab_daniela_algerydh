@@ -61,7 +61,7 @@ Evidence connects directly to DuckDB and presents the results through a clean, m
 - payment distributions
 - combined analyses spanning film, inventory, rental and payment tables
 
-//add screenshots
+!(image)[./evidence/static/images/profitable_movies.png]
 
 ---
 
