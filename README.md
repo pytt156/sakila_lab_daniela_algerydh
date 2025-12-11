@@ -69,8 +69,8 @@ Evidence connects directly to DuckDB and presents the results through a clean, m
 
 Typical findings include:
 
-- ....
-- ...
+![image](./evidence/static/images/revenue_over_time.png)
+![image](./evidence/static/images/top_categories.png)
 
 ---
 
