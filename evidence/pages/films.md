@@ -89,6 +89,7 @@ ORDER BY name DESC;
     colorPalette=myPastelBars
     title="Most rented categories"
 />
+
 ```sql most_rented_categories
 SELECT
     category,
@@ -99,4 +100,5 @@ ORDER BY rented_count DESC
 LIMIT 20;
 ```
 
+---
 
