@@ -62,7 +62,7 @@ LIMIT 10;
     ],
     series: [
       {
-        type: 'pie',Rentals
+        type: 'pie',
         data: [...revenue_by_category]
       }
     ]
